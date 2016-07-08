@@ -1,0 +1,49 @@
+%----------------------------------------------------------------------------------------
+% Document info
+%----------------------------------------------------------------------------------------
+% Author:   Javy de Koning
+% Version:  2016-07-07 - 1
+% Compiler: LuaLatex using ShareLatex.com
+% Requires: Fontawesome package Version 4.6.3.2, released on May 22, 2016
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper, oneside, final]{article}
+%----------------------------------------------------------------------------------------
+% LOAD PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{scrpage2}           % Provides headers and footers configuration
+\usepackage{titlesec}           % Allows creating custom \section's
+\usepackage{marvosym}           % Allows the use of symbols
+\usepackage{tabularx,colortbl}  % Advanced table configurations
+\usepackage{hyperref,url}       % Allows url links
+\usepackage{enumitem}           % Allows enum lists
+\usepackage{fontawesome}        % Social Icons
+\usepackage[a4paper, margin=0.75in]{geometry}
+%----------------------------------------------------------------------------------------
+% Custom Configuration
+%----------------------------------------------------------------------------------------
+\pagenumbering{gobble}          % Disable pag numbering
+\setlist{nolistsep}             % Removes spacing
+\pagestyle{scrheadings}         % Print the headers and footers on all pages
+\addtolength{\voffset}{-0.25in} % Adjust the vertical offset - less whitespace at the top of the page
+%\addtolength{\textheight}{4cm} % Adjust the text height - less whitespace at the bottom of the page
+\setlength\parindent{0pt}       % No indent across whole file
+%----------------------------------------------------------------------------------------
+% Custom Commands
+%----------------------------------------------------------------------------------------
+\newcommand{\gray}{\rowcolor[gray]{.90}} % Custom highlighting for the work experience and education sections
+%----------------------------------------------------------------------------------------
+% Section markup/formatting
+%----------------------------------------------------------------------------------------
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+
+\begin{document}
+
+\input{header.tex}
+\input{experience.tex}
+\input{education.tex}
+\input{publications.tex}
+\input{skills.tex}
+\input{certifications.tex}
+\input{hobbies.tex}
+
+\end{document}
