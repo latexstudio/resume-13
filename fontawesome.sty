@@ -1,80 +1,36 @@
-%% start of file `fontawesome.sty'.
-%% Copyright 2013-2016 Xavier Danaux (xdanaux@gmail.com).
+% Font Awesome 5 Free bindings for XeLaTeX.
 %
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
+% Updated for FontAwesome 5 Free by Javy de Koning <jdekoning@javydekoning.com>.
+%
+% Original from: Honza Ustohal <honza@egoistic.biz> (https://gist.github.com/sway/3101743)
+%
+% Translation of FontAwesome's private range characters into XeTeX symbols. All
+% icons are camel-cased and prefixed with 'fa', i.e. what was .fa-address-book
+% in the CSS version of FontAwesome becomes \faAddressBook.
+%
+% Requirements: XeLaTeX, FontAwesome 5 Free fonts 
+%
+% Usage:
+% 1. Save this file to your project folder as fontawesome.sty.
+% 2. Save fontawesomesymbols.tex to your project folder.
+% 3. Put \usepackage{fontawesome} into your preamble.
 
-
-%-------------------------------------------------------------------------------
-%                identification
-%-------------------------------------------------------------------------------
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{fontawesome}[2016/05/15 v4.6.3 font awesome icons]
-
-
-%-------------------------------------------------------------------------------
-%                requirements
-%-------------------------------------------------------------------------------
-\RequirePackage{ifxetex,ifluatex}
-\newif\iffontawesome@otf\fontawesome@otffalse
-\ifxetex
-  \fontawesome@otftrue
-\else
-  \ifluatex
-    \fontawesome@otftrue\fi\fi
-
-
-%-------------------------------------------------------------------------------
-%                generic implementation
-%-------------------------------------------------------------------------------
-% generic command to display an icon by its name
-\newcommand*{\faicon}[1]{%
-  {\csname faicon@#1\endcsname}}
-
-% generic icon commands and aliases
-\input{fontawesomesymbols-generic.tex}
-
-%-------------------------------------------------------------------------------
-%                xe- and lualatex implementation
-%-------------------------------------------------------------------------------
-\iffontawesome@otf
-\usepackage{fontspec}
-
-% definition of \FA as a shortcut to load the Font Awesome font
-\newfontfamily{\FA}[
+\newfontfamily{\FAB}[
 Path = fonts/fontawesome/opentype/ ,
 Scale = 0.85 ,
 SmallCapsFont = *
-]{FontAwesome}
+]{Font Awesome 5 Brands-Regular-400}
 
-% icon-specific commands
-\input{fontawesomesymbols-xeluatex.tex}
+\newfontfamily{\FAR}[
+Path = fonts/fontawesome/opentype/ ,
+Scale = 0.85 ,
+SmallCapsFont = *
+]{Font Awesome 5 Free-Regular-400}
 
-%-------------------------------------------------------------------------------
-%                (pdf)latex implementation
-%-------------------------------------------------------------------------------
-\else
-% definition of \FA... as a shortcut to load the Font Awesome font
-\DeclareRobustCommand\FAone{\fontencoding{U}\fontfamily{fontawesomeone}\selectfont}
-\DeclareRobustCommand\FAtwo{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont}
-\DeclareRobustCommand\FAthree{\fontencoding{U}\fontfamily{fontawesomethree}\selectfont}
+\newfontfamily{\FAS}[
+Path = fonts/fontawesome/opentype/ ,
+Scale = 0.85 ,
+SmallCapsFont = *
+]{Font Awesome 5 Free-Solid-900}
 
-% icon-specific commands
-\input{fontawesomesymbols-pdftex.tex}
-
-\fi
-
-%-------------------------------------------------------------------------------
-%                fix for FontAwesome icon names containing numerals
-%-------------------------------------------------------------------------------
-\renewcommand{\faHourglass}[1][]{%
-  \faicon{hourglass\if\relax\detokenize{#1}\relax\else-#1\fi}}
-\renewcommand{\faBattery}[1][4]{%
-  \faicon{battery-#1}}
-
-
-\endinput
-
-
-%% end of file `fontawesome.sty'.
+\input{fontawesomesymbols.tex}
